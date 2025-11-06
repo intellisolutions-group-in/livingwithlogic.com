@@ -256,7 +256,7 @@ export default function BookingPage() {
             </motion.div>
 
             {/* Consultation Options Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 pt-6">
               {consultationOptions.map((option, index) => (
                 <motion.div 
                   key={index} 
@@ -268,10 +268,10 @@ export default function BookingPage() {
                   whileHover={{ y: -8 }}
                 >
                   {option.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-accent-500 to-secondary-500 text-white rounded-2xl font-bold shadow-glow text-sm">
-                        <Star size={16} className="mr-2" />
-                        MOST POPULAR
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10 whitespace-nowrap">
+                      <span className="inline-flex items-center px-4 py-1.5 bg-gradient-to-r from-accent-500 to-secondary-500 text-white rounded-full font-bold shadow-glow text-xs uppercase tracking-wide">
+                        <Star size={14} className="mr-1.5" />
+                        Most Popular
                       </span>
                     </div>
                   )}

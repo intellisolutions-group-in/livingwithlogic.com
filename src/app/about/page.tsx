@@ -105,7 +105,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              Founded in 2014, Living With Logic has helped over 200 organizations achieve sustainable growth through strategic thinking and logical frameworks.
+              Founded in 2010, Living With Logic has helped over 200 organizations achieve sustainable growth through strategic thinking and logical frameworks.
             </motion.p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-6 justify-center"

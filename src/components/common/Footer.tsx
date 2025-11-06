@@ -3,31 +3,35 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Calendar, ArrowRight, Shield, LinkedinIcon, Twitter, Facebook } from 'lucide-react';
+import { Mail, MapPin, Calendar, ArrowRight, Shield, Twitter, Facebook } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const companyLinks = [
     { href: '/about', label: 'About Us' },
+    { href: '/our-team', label: 'Our Team' },
+    { href: '/case-studies', label: 'Case Studies' },
+    { href: '/testimonials', label: 'Testimonials' },
     { href: '/blog', label: 'Blog & Insights' },
     { href: '/contact', label: 'Contact Us' },
     { href: '/booking', label: 'Book Consultation' },
   ];
 
   const serviceLinks = [
-    { href: '/services', label: 'Strategic Consulting' },
-    { href: '/services', label: 'Leadership Development' },
-    { href: '/services', label: 'Organizational Excellence' },
-    { href: '/services', label: 'Innovation Strategy' },
+    { href: '/services', label: 'All Services' },
+    { href: '/services/strategic-consulting', label: 'Strategic Consulting' },
+    { href: '/services/leadership-development', label: 'Leadership Development' },
+    { href: '/services/team-workshops', label: 'Team Workshops' },
+    { href: '/services/organizational-transformation', label: 'Organizational Transformation' },
   ];
 
-  // const resourceLinks = [
-  //   { href: '/blog', label: 'Articles & Insights' },
-  //   { href: '/services', label: 'Case Studies' },
-  //   { href: '/contact', label: 'Free Consultation' },
-  //   { href: '/about', label: 'Our Methodology' },
-  // ];
+  const resourceLinks = [
+    { href: '/resources', label: 'Knowledge Hub' },
+    { href: '/faq', label: 'FAQ' },
+    { href: '/industries', label: 'Industries We Serve' },
+    { href: '/blog', label: 'Articles & Insights' },
+  ];
 
   const socialLinks = [
     {
@@ -63,7 +67,7 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16 lg:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
             
             {/* Company Info & Newsletter */}
             <motion.div 
@@ -79,13 +83,13 @@ export default function Footer() {
                   className="inline-block group focus-ring"
                   aria-label="Living With Logic - Home"
                 >
-                  <div className="relative h-16 w-auto group-hover:scale-105 transition-transform duration-300">
+                  <div className="relative h-20 w-auto group-hover:scale-105 transition-transform duration-300">
                     <Image
-                      src="/assets/logo/Living with logic Logo-04.png"
+                      src="/assets/logo/Living with logic Logo-04 (1).png"
                       alt="Living With Logic"
-                      width={200}
-                      height={64}
-                      className="h-16 w-auto object-contain brightness-0 invert transition-transform duration-300"
+                      width={280}
+                      height={90}
+                      className="h-20 w-auto object-contain brightness-0 invert transition-transform duration-300"
                       priority
                     />
                   </div>
@@ -105,15 +109,14 @@ export default function Footer() {
               viewport={{ once: true }}
             >
               <h3 className="font-display font-bold text-white mb-6">Company</h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {companyLinks.map((link, index) => (
                   <li key={index}>
                     <Link 
                       href={link.href}
-                      className="flex items-center text-surface-300 hover:text-accent-400 transition-colors group focus-ring"
+                      className="text-surface-300 hover:text-accent-400 transition-colors focus-ring block"
                     >
-                      <ArrowRight size={14} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <span>{link.label}</span>
+                      {link.label}
                     </Link>
                   </li>
                 ))}
@@ -128,89 +131,117 @@ export default function Footer() {
               viewport={{ once: true }}
             >
               <h3 className="font-display font-bold text-white mb-6">Services</h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {serviceLinks.map((link, index) => (
                   <li key={index}>
                     <Link 
                       href={link.href}
-                      className="flex items-center text-surface-300 hover:text-accent-400 transition-colors group focus-ring"
+                      className="text-surface-300 hover:text-accent-400 transition-colors focus-ring block"
                     >
-                      <ArrowRight size={14} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <span>{link.label}</span>
+                      {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
             </motion.div>
 
-            {/* Contact & Resources */}
+            {/* Resources Links */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <h3 className="font-display font-bold text-white mb-6">Get in Touch</h3>
-              
+              <h3 className="font-display font-bold text-white mb-6">Resources</h3>
+              <ul className="space-y-3">
+                {resourceLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link 
+                      href={link.href}
+                      className="text-surface-300 hover:text-accent-400 transition-colors focus-ring block"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Contact & Social Section */}
+          <div className="mt-16 pt-12 border-t border-surface-700/50">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 gap-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
               {/* Contact Information */}
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3 group">
-                  <Mail size={16} className="text-accent-400 flex-shrink-0" />
-                  <a 
-                    href="mailto:info@livingwithlogic.com" 
-                    className="text-surface-300 hover:text-white transition-colors focus-ring"
-                  >
-                    info@livingwithlogic.com
-                  </a>
-                </div>
-              
-                <div className="flex items-start space-x-3">
-                  <MapPin size={16} className="text-accent-400 flex-shrink-0 mt-0.5" />
-                  <address className="text-surface-300 not-italic">
-                  503-B, Priviera Nehrunagar Circle,
-                  Near Bank of Baroda,
-                  Ahmedabad – 380015
-                  </address>
+              <div>
+                <h3 className="font-display font-bold text-white mb-6">Get in Touch</h3>
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center space-x-3 group">
+                    <Mail size={16} className="text-accent-400 flex-shrink-0" />
+                    <a 
+                      href="mailto:info@livingwithlogic.com" 
+                      className="text-surface-300 hover:text-white transition-colors focus-ring"
+                    >
+                      info@livingwithlogic.com
+                    </a>
+                  </div>
+                
+                  <div className="flex items-start space-x-3">
+                    <MapPin size={16} className="text-accent-400 flex-shrink-0 mt-0.5" />
+                    <address className="text-surface-300 not-italic">
+                    503-B, Priviera Nehrunagar Circle,
+                    Near Bank of Baroda,
+                    Ahmedabad – 380015
+                    </address>
+                  </div>
                 </div>
               </div>
 
-              {/* CTA Button */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="mb-8"
-              >
-                <Link
-                  href="/booking"
-                  className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 shadow-soft hover:shadow-elevated focus-ring group"
-                >
-                  <Calendar size={18} className="group-hover:rotate-12 transition-transform" />
-                  <span>Book Consultation</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
-
-              {/* Social Media Links */}
+              {/* CTA and Social */}
               <div>
-                <h4 className="font-semibold text-white mb-4">Follow Us</h4>
-                <div className="flex space-x-3">
-                  {socialLinks.map((social, index) => {
-                    const IconComponent = social.icon;
-                    return (
-                      <motion.a
-                        key={index}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-10 h-10 bg-surface-800 rounded-xl flex items-center justify-center ${social.color} transition-all duration-300 shadow-soft hover:shadow-elevated focus-ring group`}
-                        aria-label={`Follow us on ${social.name}`}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <IconComponent size={18} className="group-hover:scale-110 transition-transform" />
-                      </motion.a>
-                    );
-                  })}
+                {/* CTA Button */}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="mb-8"
+                >
+                  <Link
+                    href="/booking"
+                    className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 shadow-soft hover:shadow-elevated focus-ring group"
+                  >
+                    <Calendar size={18} className="group-hover:rotate-12 transition-transform" />
+                    <span>Book Consultation</span>
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </motion.div>
+
+                {/* Social Media Links */}
+                <div>
+                  <h4 className="font-semibold text-white mb-4">Follow Us</h4>
+                  <div className="flex space-x-3">
+                    {socialLinks.map((social, index) => {
+                      const IconComponent = social.icon;
+                      return (
+                        <motion.a
+                          key={index}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`w-10 h-10 bg-surface-800 rounded-xl flex items-center justify-center ${social.color} transition-all duration-300 shadow-soft hover:shadow-elevated focus-ring group`}
+                          aria-label={`Follow us on ${social.name}`}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <IconComponent size={18} className="group-hover:scale-110 transition-transform" />
+                        </motion.a>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -228,7 +259,7 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
             <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
               <p className="text-surface-400 text-sm">
-                © {currentYear} Living With Logic. All rights reserved.
+                © 2010-{currentYear} Living With Logic. All rights reserved.
               </p>
               <div className="flex items-center space-x-6 text-sm">
                 <Link 

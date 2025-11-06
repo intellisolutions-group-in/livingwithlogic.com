@@ -258,11 +258,11 @@ export default function TermsPage() {
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                 <a 
-                  href="mailto:legal@livingwithlogic.com"
+                  href="mailto:info@livingwithlogic.com"
                   className="inline-flex items-center space-x-3 px-8 py-4 bg-white text-primary-600 font-bold text-lg rounded-2xl hover:bg-surface-50 transition-all duration-300 shadow-soft hover:shadow-elevated focus-ring"
                 >
                   <Mail size={20} />
-                  <span>legal@livingwithlogic.com</span>
+                  <span>info@livingwithlogic.com</span>
                 </a>
               </motion.div>
               

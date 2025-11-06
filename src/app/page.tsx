@@ -535,7 +535,7 @@ export default function HomePage() {
                   {
                     icon: Rocket,
                     title: 'Implementation Focus',
-                    description: 'We don\'t just provide recommendations—we work alongside your team to ensure successful implementation and sustainable results.',
+                    description: 'We don\'t just provide recommendations we work alongside your team to ensure successful implementation and sustainable results.',
                     features: ['Hands-on implementation support', 'Team training and development', 'Long-term partnership approach']
                   }
                 ].map((item, index) => (

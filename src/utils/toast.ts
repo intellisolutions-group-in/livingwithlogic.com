@@ -55,7 +55,7 @@ export const showToast = {
       fontWeight: 'bold'
     }
   }),
-  newsletterSuccess: () => toast('Thank you for subscribing us we will contact you soon', { 
+  newsletterSuccess: () => toast('Thanks for subscribing! You will receive updates soon', { 
     icon: '📧',
     duration: 5000,
     style: {

@@ -11,6 +11,7 @@ import { BarChart3, Users, Lightbulb, RefreshCw, ArrowRight, CheckCircle2, Targe
 const services = [
   {
     title: 'Strategic Consulting',
+    slug: 'strategic-consulting',
     description: 'Comprehensive business strategy development and implementation guidance.',
     longDescription: 'Our strategic consulting service helps organizations develop clear, actionable strategies that drive sustainable growth. We work with leadership teams to assess current market position, identify opportunities, and create detailed roadmaps for success.',
     features: [
@@ -26,6 +27,7 @@ const services = [
   },
   {
     title: 'Leadership Development',
+    slug: 'leadership-development',
     description: 'Executive coaching and leadership training programs for all levels.',
     longDescription: 'Develop exceptional leaders who can navigate complex challenges and drive organizational success. Our evidence-based approach combines individual coaching with group development programs.',
     features: [
@@ -41,6 +43,7 @@ const services = [
   },
   {
     title: 'Team Workshops',
+    slug: 'team-workshops',
     description: 'Interactive workshops designed to enhance team performance and collaboration.',
     longDescription: 'Transform your team dynamics with our hands-on workshops that focus on practical skills, improved communication, and enhanced collaboration for immediate and lasting impact.',
     features: [
@@ -56,6 +59,7 @@ const services = [
   },
   {
     title: 'Organizational Transformation',
+    slug: 'organizational-transformation',
     description: 'Complete organizational restructuring and culture change initiatives.',
     longDescription: 'Guide your organization through major transformations with our comprehensive approach that addresses structure, process, technology, and culture to ensure sustainable change.',
     features: [
@@ -276,7 +280,7 @@ export default function ServicesPage() {
                     </div>
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
                       <Link 
-                        href="/booking"
+                        href={`/services/${service.slug}`}
                         className="inline-flex items-center justify-center space-x-2 px-4 sm:px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-bold shadow-soft hover:shadow-elevated focus-ring w-full sm:w-auto"
                       >
                         <span>Learn More</span>
