@@ -32,21 +32,21 @@ const contactMethods = [
     description: 'Prefer to speak directly? Call us during business hours for immediate assistance.',
     icon: Phone,
     action: 'Call Now',
-    href: 'tel:+1-555-LOGIC-1'
+    href: 'tel:+919723280423'
   }
 ];
 
 const officeInfo = [
   {
     title: 'Headquarters',
-    address: '503-B, Priviera Nehrunagar Circle\nNear Bank of Baroda,\nAhmedabad – 380015',
-    phone: '+1 (555) LOGIC-1',
+    address: '503, B Priviera, Nehru Nagar Circle,\nNear Bank of Baroda, Patel Colony,\nAmbawadi, Ahmedabad, Gujarat - 380015',
+    phone: '+91 97232 80423',
     email: 'info@livingwithlogic.com'
   },
   {
     title: 'Business Hours',
     address: 'Monday - Friday\n10:00 AM - 7:00 PM IST\n\nWeekends\nBy Appointment Only',
-    phone: 'Emergency: +1 (555) LOGIC-2',
+    phone: '+91 97232 80423',
     email: 'info@livingwithlogic.com'
   }
 ];
@@ -166,7 +166,7 @@ export default function ContactPage() {
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                 <a 
-                  href="tel:+1-555-LOGIC-1"
+                  href="tel:+919723280423"
                   className="inline-flex items-center space-x-3 px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-2xl font-bold text-lg transition-all duration-300 border border-white/30 hover:border-white/50 focus-ring-inset"
                 >
                   <Phone size={20} />
@@ -435,6 +435,13 @@ export default function ContactPage() {
                         Address
                       </h4>
                       <p className="text-surface-700 whitespace-pre-line leading-relaxed">{office.address}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-secondary-600 mb-3 text-lg flex items-center">
+                        <Phone size={18} className="mr-2" />
+                        Phone
+                      </h4>
+                      <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="text-surface-700 text-lg hover:text-secondary-600 transition-colors">{office.phone}</a>
                     </div>
                     <div>
                       <h4 className="font-bold text-secondary-600 mb-3 text-lg flex items-center">

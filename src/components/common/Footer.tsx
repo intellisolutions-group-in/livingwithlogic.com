@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Calendar, ArrowRight, Shield, Twitter, Facebook } from 'lucide-react';
+import { Mail, MapPin, Calendar, ArrowRight, Shield, Twitter, Facebook, Phone } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -182,6 +182,16 @@ export default function Footer() {
                 <h3 className="font-display font-bold text-white mb-6">Get in Touch</h3>
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center space-x-3 group">
+                    <Phone size={16} className="text-accent-400 flex-shrink-0" />
+                    <a 
+                      href="tel:+919723280423" 
+                      className="text-surface-300 hover:text-white transition-colors focus-ring"
+                    >
+                      +91 97232 80423
+                    </a>
+                  </div>
+                  
+                  <div className="flex items-center space-x-3 group">
                     <Mail size={16} className="text-accent-400 flex-shrink-0" />
                     <a 
                       href="mailto:info@livingwithlogic.com" 
@@ -194,9 +204,9 @@ export default function Footer() {
                   <div className="flex items-start space-x-3">
                     <MapPin size={16} className="text-accent-400 flex-shrink-0 mt-0.5" />
                     <address className="text-surface-300 not-italic">
-                    503-B, Priviera Nehrunagar Circle,
-                    Near Bank of Baroda,
-                    Ahmedabad – 380015
+                    503, B Priviera, Nehru Nagar Circle,
+                    Near Bank of Baroda, Patel Colony,
+                    Ambawadi, Ahmedabad, Gujarat - 380015
                     </address>
                   </div>
                 </div>
