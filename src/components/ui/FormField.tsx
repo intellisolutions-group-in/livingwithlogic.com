@@ -62,7 +62,7 @@ export default function FormField({
   const inputType = isPassword ? (showPassword ? 'text' : 'password') : type;
 
   const inputClasses = `
-    form-field transition-all duration-300 ${isPassword ? 'pr-12' : ''}
+    form-field transition-all duration-300 ${isPassword ? '!pr-14' : ''}
     ${hasError 
       ? 'border-rose-300 bg-rose-50 focus:ring-rose-500 focus:border-rose-500' 
       : 'border-surface-300 bg-white hover:border-surface-400 focus:ring-primary-500 focus:border-primary-500'
@@ -110,18 +110,18 @@ export default function FormField({
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className={`absolute top-0 right-0 h-full w-12 flex items-center justify-center focus:outline-none transition-colors duration-200 z-20 ${
+              className={`absolute inset-y-0 right-0 w-12 flex items-center justify-center focus:outline-none transition-colors duration-200 z-20 rounded-r-xl ${
                 darkMode 
-                  ? 'text-surface-800 hover:text-surface-900 bg-transparent hover:bg-surface-100/10' 
-                  : 'text-surface-500 hover:text-surface-700 bg-transparent hover:bg-surface-100'
+                  ? 'text-surface-600 hover:text-surface-800' 
+                  : 'text-surface-500 hover:text-surface-700'
               }`}
               aria-label={showPassword ? 'Hide password' : 'Show password'}
               tabIndex={0}
             >
               {showPassword ? (
-                <EyeOff size={20} />
+                <EyeOff size={18} />
               ) : (
-                <Eye size={20} />
+                <Eye size={18} />
               )}
             </button>
           )}

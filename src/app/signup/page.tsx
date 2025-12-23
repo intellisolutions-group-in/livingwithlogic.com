@@ -132,7 +132,7 @@ export default function SignupPage() {
                 name="password"
                 type="password"
                 label="Password"
-                placeholder="Create a secure password (min 8 chars, upper/lower/number)"
+                placeholder="Min 8 chars, upper, lower & number"
                 value={formData.password}
                 onChange={updateField('password')}
                 validation={validation.signupPassword}

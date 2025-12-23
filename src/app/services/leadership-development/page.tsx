@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
   Users, ArrowRight, CheckCircle2, Calendar, 
-  Target, Award, Clock, DollarSign,
-  Brain, Star, Download
+  Target, Award, Clock,
+  Brain, Star, MessageCircle
 } from 'lucide-react';
 
 const programFormats = [
@@ -16,32 +16,28 @@ const programFormats = [
     duration: '6-12 months',
     format: 'One-on-one sessions',
     frequency: 'Bi-weekly meetings',
-    ideal: 'C-Suite & Senior Leaders',
-    price: '₹6,00,000'
+    ideal: 'C-Suite & Senior Leaders'
   },
   {
     title: 'Leadership Bootcamp',
     duration: '3 days',
     format: 'Intensive workshop',
     frequency: 'Full-day sessions',
-    ideal: 'Emerging leaders',
-    price: '₹2,50,000'
+    ideal: 'Emerging leaders'
   },
   {
     title: 'Leadership Series',
     duration: '3 months',
     format: 'Group program',
     frequency: '8 weekly sessions',
-    ideal: 'Mid-level managers',
-    price: '₹4,50,000'
+    ideal: 'Mid-level managers'
   },
   {
     title: 'Corporate Program',
     duration: 'Customized',
     format: 'Hybrid approach',
     frequency: 'Flexible schedule',
-    ideal: 'Leadership teams',
-    price: 'Custom'
+    ideal: 'Leadership teams'
   }
 ];
 
@@ -87,11 +83,10 @@ const assessmentTools = [
   'Communication Style Analysis'
 ];
 
-const pricingPackages = [
+const packages = [
   {
     name: 'Individual Coaching',
     duration: '6 months',
-    price: '₹6,00,000',
     features: [
       '12 one-on-one coaching sessions',
       'Leadership assessment & 360 feedback',
@@ -100,13 +95,11 @@ const pricingPackages = [
       'Email support between sessions',
       'Progress reports'
     ],
-    ideal: 'Executives & Senior Leaders',
-    cta: 'Start Coaching'
+    ideal: 'Executives & Senior Leaders'
   },
   {
     name: 'Group Leadership Program',
     duration: '3 months',
-    price: '₹15,00,000',
     features: [
       'Up to 15 participants',
       '8 weekly group sessions (3 hours each)',
@@ -117,13 +110,11 @@ const pricingPackages = [
       'Completion certificates'
     ],
     ideal: 'Leadership teams',
-    popular: true,
-    cta: 'Most Popular'
+    popular: true
   },
   {
     name: 'Corporate Package',
     duration: '12 months',
-    price: 'Custom',
     features: [
       'Customized curriculum',
       'Mix of coaching & workshops',
@@ -133,8 +124,7 @@ const pricingPackages = [
       'Quarterly leadership summits',
       'ROI measurement'
     ],
-    ideal: 'Enterprise organizations',
-    cta: 'Contact Us'
+    ideal: 'Enterprise organizations'
   }
 ];
 
@@ -291,7 +281,6 @@ export default function LeadershipDevelopmentPage() {
                       <Users size={28} className="text-white" />
                     </div>
                     <h3 className="heading-card text-surface-900 mb-2">{program.title}</h3>
-                    <div className="text-2xl font-black text-primary-600 mb-4">{program.price}</div>
                   </div>
                   
                   <div className="space-y-3 text-sm">
@@ -451,7 +440,7 @@ export default function LeadershipDevelopmentPage() {
         </div>
       </motion.section>
 
-      {/* Pricing */}
+      {/* Packages */}
       <motion.section 
         className="relative py-24 overflow-hidden"
         initial={{ opacity: 0 }}
@@ -472,8 +461,8 @@ export default function LeadershipDevelopmentPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm text-accent-300 font-bold rounded-2xl shadow-glow border border-accent-400/30 mb-8">
-                <DollarSign size={20} className="mr-2" />
-                INVESTMENT OPTIONS
+                <Target size={20} className="mr-2" />
+                ENGAGEMENT OPTIONS
               </div>
               <h2 className="heading-section text-white mb-8">
                 Flexible{' '}
@@ -484,7 +473,7 @@ export default function LeadershipDevelopmentPage() {
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {pricingPackages.map((pkg, index) => (
+              {packages.map((pkg, index) => (
                 <motion.div 
                   key={index}
                   className={`card-glass p-8 hover:bg-white/15 transition-all duration-500 border-surface-700/50 hover:border-accent-400/50 relative ${
@@ -499,7 +488,7 @@ export default function LeadershipDevelopmentPage() {
                   {pkg.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                       <div className="px-6 py-2 bg-gradient-to-r from-accent-500 to-secondary-500 text-white font-bold rounded-full text-sm shadow-glow">
-                        {pkg.cta}
+                        Most Popular
                       </div>
                     </div>
                   )}
@@ -510,8 +499,6 @@ export default function LeadershipDevelopmentPage() {
                       <Clock size={16} />
                       <span className="text-sm">{pkg.duration}</span>
                     </div>
-                    <div className="text-5xl font-black text-accent-300 mb-2">{pkg.price}</div>
-                    <div className="text-sm text-surface-400">Total investment</div>
                   </div>
 
                   <div className="mb-8">
@@ -532,14 +519,14 @@ export default function LeadershipDevelopmentPage() {
 
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                     <Link 
-                      href="/booking"
+                      href="/contact"
                       className={`block text-center px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                         pkg.popular
                           ? 'bg-gradient-to-r from-accent-600 to-secondary-600 text-white hover:from-accent-700 hover:to-secondary-700 shadow-soft hover:shadow-elevated'
                           : 'bg-white/10 text-white hover:bg-white/20 border border-white/30 hover:border-white/50'
                       }`}
                     >
-                      {pkg.popular ? 'Get Started' : pkg.cta}
+                      Contact Us
                     </Link>
                   </motion.div>
                 </motion.div>
@@ -589,7 +576,7 @@ export default function LeadershipDevelopmentPage() {
             >
               <div className="mb-8">
                 <h3 className="text-3xl font-bold text-surface-900 mb-4">From Technical Expert to Inspiring Leader</h3>
-                <p className="text-surface-600 text-lg">Priya Patel, Director at Healthcare Solutions, Bangalore</p>
+                <p className="text-surface-600 text-lg">Director at a Healthcare Company, Bangalore</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -643,7 +630,7 @@ export default function LeadershipDevelopmentPage() {
                     </p>
                     <div>
                       <div className="font-bold text-surface-900">Priya Patel</div>
-                      <div className="text-surface-600 text-sm">Vice President of Operations, Healthcare Solutions, Bangalore</div>
+                      <div className="text-surface-600 text-sm">Vice President of Operations</div>
                     </div>
                   </div>
                 </div>
@@ -751,8 +738,8 @@ export default function LeadershipDevelopmentPage() {
                   href="/contact"
                   className="inline-flex items-center space-x-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-bold text-lg hover:bg-white/20 transition-all duration-300 border border-white/30 hover:border-white/50 focus-ring-inset"
                 >
-                  <Download size={20} />
-                  <span>Download Program Guide</span>
+                  <MessageCircle size={20} />
+                  <span>Contact Us</span>
                 </Link>
               </motion.div>
             </motion.div>

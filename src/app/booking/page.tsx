@@ -13,9 +13,8 @@ import { Calendar, Clock, CheckCircle2, ArrowRight, Star, Users, Phone, Mail, Me
 
 const consultationOptions = [
   {
-    title: 'Strategy Discovery Call',
+    title: 'Free Discovery Call',
     duration: '30 minutes',
-    price: 'Free',
     description: 'Perfect for initial discussions about your business challenges and exploration of how we can help.',
     features: [
       'Business challenge assessment',
@@ -24,35 +23,23 @@ const consultationOptions = [
       'Next steps planning',
       'No obligation consultation'
     ],
-    popular: true
+    popular: true,
+    isFree: true
   },
   {
-    title: 'Deep Dive Strategy Session',
-    duration: '90 minutes',
-    price: '$500',
-    description: 'Comprehensive analysis session with detailed strategic recommendations and implementation roadmap.',
+    title: 'Enterprise Consultation',
+    duration: 'Custom',
+    description: 'Comprehensive consultation tailored for enterprise organizations with complex needs and larger teams.',
     features: [
       'Comprehensive business analysis',
       'Detailed strategic recommendations',
       'Implementation roadmap',
       'Priority action items',
-      'Follow-up summary report'
+      'Follow-up summary report',
+      'Dedicated account manager'
     ],
-    popular: false
-  },
-  {
-    title: 'Executive Leadership Assessment',
-    duration: '2 hours',
-    price: '$750',
-    description: 'In-depth leadership evaluation with personalized development plan and coaching recommendations.',
-    features: [
-      'Leadership assessment tools',
-      'Personality and style analysis',
-      'Personalized development plan',
-      'Coaching recommendations',
-      'Team dynamics evaluation'
-    ],
-    popular: false
+    popular: false,
+    isFree: false
   }
 ];
 
@@ -256,7 +243,7 @@ export default function BookingPage() {
             </motion.div>
 
             {/* Consultation Options Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-6 max-w-4xl mx-auto">
               {consultationOptions.map((option, index) => (
                 <motion.div 
                   key={index} 
@@ -281,7 +268,7 @@ export default function BookingPage() {
                       {option.title}
                     </h3>
                     <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-secondary-400 mb-3">
-                      {option.price}
+                      {option.isFree ? 'Free' : 'Custom'}
                     </div>
                     <div className="flex items-center justify-center text-surface-300 text-lg">
                       <Clock size={18} className="mr-2" />
@@ -302,18 +289,23 @@ export default function BookingPage() {
                     ))}
                   </ul>
                   
-                  <motion.button 
-                    onClick={handlePlanSelection}
-                    className={`w-full py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 shadow-soft hover:shadow-elevated focus-ring ${
-                      option.popular 
-                        ? 'bg-gradient-to-r from-accent-600 to-secondary-600 text-white hover:from-accent-700 hover:to-secondary-700' 
-                        : 'bg-white/10 text-white border-2 border-accent-400/50 hover:bg-accent-400 hover:text-surface-900'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Select This Option
-                  </motion.button>
+                  {option.isFree ? (
+                    <motion.button 
+                      onClick={handlePlanSelection}
+                      className="w-full py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 shadow-soft hover:shadow-elevated focus-ring bg-gradient-to-r from-accent-600 to-secondary-600 text-white hover:from-accent-700 hover:to-secondary-700"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Book Free Call
+                    </motion.button>
+                  ) : (
+                    <Link 
+                      href="/contact"
+                      className="block w-full py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 shadow-soft hover:shadow-elevated focus-ring bg-white/10 text-white border-2 border-accent-400/50 hover:bg-accent-400 hover:text-surface-900 text-center"
+                    >
+                      Contact Us
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -734,7 +726,7 @@ export default function BookingPage() {
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                 <a 
-                  href="tel:+1-555-LOGIC-1"
+                  href="tel:+919723280423"
                   className="inline-flex items-center space-x-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-bold text-lg hover:bg-white/20 transition-all duration-300 border border-white/30 hover:border-white/50 focus-ring-inset"
                 >
                   <Phone size={20} />

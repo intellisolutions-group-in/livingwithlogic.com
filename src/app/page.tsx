@@ -14,10 +14,10 @@ const stats = [
 ];
 
 const achievements = [
-  { metric: '$50M+', description: 'In client revenue generated', trend: '+40%' },
-  { metric: '95%', description: 'Project success rate', trend: '+15%' },
-  { metric: '48hrs', description: 'Average response time', trend: '-60%' },
-  { metric: '200+', description: 'Companies transformed', trend: '+25%' }
+  { metric: '95%', description: 'Project success rate', trend: 'Consistent' },
+  { metric: '24hrs', description: 'Average response time', trend: 'Fast' },
+  { metric: '200+', description: 'Companies transformed', trend: 'Growing' },
+  { metric: '15+', description: 'Years of excellence', trend: 'Since 2010' }
 ];
 
 const services = [
@@ -677,15 +677,15 @@ export default function HomePage() {
               viewport={{ once: true }}
             >
               <div className="text-center mb-12">
-                <h3 className="heading-card text-surface-900 mb-6">Our Credentials</h3>
+                <h3 className="heading-card text-surface-900 mb-6">Our Methodology</h3>
             </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                   {[
-                    { title: 'MBA Strategy', subtitle: 'Top Business Schools' },
-                    { title: 'PMP Certified', subtitle: 'Project Management' },
-                    { title: 'Lean Six Sigma', subtitle: 'Black Belt Certified' },
-                    { title: 'Agile Coach', subtitle: 'Scrum Alliance' }
-                  ].map((credential, index) => (
+                    { title: 'Data-Driven', subtitle: 'Evidence-Based Decisions' },
+                    { title: 'Results-Focused', subtitle: 'Measurable Outcomes' },
+                    { title: 'Collaborative', subtitle: 'Partnership Approach' },
+                    { title: 'Adaptive', subtitle: 'Flexible Frameworks' }
+                  ].map((method, index) => (
                   <motion.div 
                     key={index} 
                     className="text-center group"
@@ -697,8 +697,8 @@ export default function HomePage() {
                     <div className="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center mb-4 shadow-soft group-hover:shadow-elevated transition-all duration-300 border border-primary-200/50">
                       <CheckCircle2 size={32} className="text-secondary-600 group-hover:text-primary-600 transition-colors" />
                     </div>
-                    <p className="font-bold text-surface-900 mb-1">{credential.title}</p>
-                    <p className="text-surface-600 text-sm">{credential.subtitle}</p>
+                    <p className="font-bold text-surface-900 mb-1">{method.title}</p>
+                    <p className="text-surface-600 text-sm">{method.subtitle}</p>
                   </motion.div>
                   ))}
               </div>

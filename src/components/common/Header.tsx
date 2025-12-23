@@ -46,14 +46,7 @@ export default function Header() {
 
   const mainNavItems = [
     { href: '/', label: 'Home' },
-    { 
-      href: '/about', 
-      label: 'About',
-      dropdown: [
-        { href: '/about', label: 'About Us' },
-        { href: '/our-team', label: 'Our Team' },
-      ]
-    },
+    { href: '/about', label: 'About' },
     { 
       href: '/services', 
       label: 'Services',

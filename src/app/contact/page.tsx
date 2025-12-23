@@ -18,7 +18,7 @@ const contactMethods = [
     description: 'Book a free 30-minute consultation to discuss your business challenges and explore how we can help.',
     icon: Calendar,
     action: 'Book Now',
-    href: '/booking'
+    href: '/signup'
   },
   {
     title: 'Send us a Message',
@@ -230,7 +230,7 @@ export default function ContactPage() {
               {contactMethods.map((method, index) => (
                 <motion.div 
                   key={index} 
-                  className="card-elevated p-10 text-center hover:shadow-elevated transition-all duration-500 group"
+                  className="card-elevated p-10 text-center hover:shadow-elevated transition-all duration-500 group flex flex-col h-full"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
@@ -245,10 +245,10 @@ export default function ContactPage() {
                   <h3 className="heading-card text-surface-900 mb-4 group-hover:text-primary-600 transition-colors">
                     {method.title}
                   </h3>
-                  <p className="body-regular text-surface-600 mb-8 group-hover:text-surface-700 transition-colors">
+                  <p className="body-regular text-surface-600 mb-8 group-hover:text-surface-700 transition-colors flex-grow">
                     {method.description}
                   </p>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="mt-auto">
                     <Link 
                       href={method.href}
                       className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-bold shadow-soft hover:shadow-elevated focus-ring"

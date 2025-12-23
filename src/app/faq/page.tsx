@@ -71,7 +71,7 @@ const faqCategories = [
     faqs: [
       {
         question: 'How much do your services cost?',
-        answer: 'Investment varies by service: Team Workshops (₹1,80,000 - ₹2,80,000), Strategic Consulting (₹12,00,000 - ₹25,00,000), Leadership Development (₹6,00,000 - ₹22,00,000), Organizational Transformation (₹20,00,000+). We offer customized packages to fit different budgets and needs.'
+        answer: 'Investment varies by service type and scope. We offer customized packages to fit different budgets and organizational needs. Contact us for a personalized quote based on your specific requirements.'
       },
       {
         question: 'Do you offer payment plans?',
@@ -83,7 +83,7 @@ const faqCategories = [
       },
       {
         question: 'Do you offer discounts for multiple services or long-term contracts?',
-        answer: 'Yes! We offer 10-20% discounts for multi-service packages (e.g., Strategy + Leadership Development) and annual retainer arrangements. Non-profits and social enterprises receive 20-25% discounts. Early-stage startups have special pricing available.'
+        answer: 'Yes! We offer special pricing for multi-service packages (e.g., Strategy + Leadership Development) and annual retainer arrangements. Non-profits, social enterprises, and early-stage startups have special pricing available. Contact us to discuss your specific needs.'
       },
       {
         question: 'Is there a free consultation?',

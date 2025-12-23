@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
   BarChart3, ArrowRight, CheckCircle2, Calendar, 
-  Target, TrendingUp, Zap, Clock, DollarSign,
-  FileText, Users, Award, Star, Download
+  Target, TrendingUp, Zap, Clock,
+  FileText, Users, Award, Star, MessageCircle
 } from 'lucide-react';
 
 const deliverables = [
@@ -62,11 +62,10 @@ const process = [
   }
 ];
 
-const pricingPackages = [
+const packages = [
   {
     name: 'Starter Package',
     duration: '3 months',
-    price: '₹12,00,000',
     features: [
       'Strategic assessment & analysis',
       'Basic strategic roadmap',
@@ -74,13 +73,11 @@ const pricingPackages = [
       'Monthly check-ins',
       'Email support'
     ],
-    ideal: 'Small businesses & startups',
-    cta: 'Get Started'
+    ideal: 'Small businesses & startups'
   },
   {
     name: 'Growth Package',
     duration: '6 months',
-    price: '₹22,00,000',
     features: [
       'Everything in Starter',
       'Comprehensive 3-year roadmap',
@@ -90,13 +87,11 @@ const pricingPackages = [
       'Quarterly business reviews'
     ],
     ideal: 'Growing mid-size companies',
-    popular: true,
-    cta: 'Most Popular'
+    popular: true
   },
   {
     name: 'Enterprise Package',
     duration: '12 months',
-    price: 'Custom',
     features: [
       'Everything in Growth',
       'Multi-year strategic planning',
@@ -105,8 +100,7 @@ const pricingPackages = [
       'Priority support',
       'Dedicated consultant'
     ],
-    ideal: 'Large enterprises',
-    cta: 'Contact Us'
+    ideal: 'Large enterprises'
   }
 ];
 
@@ -490,7 +484,7 @@ export default function StrategicConsultingPage() {
         </div>
       </motion.section>
 
-      {/* Pricing Section */}
+      {/* Packages Section */}
       <motion.section 
         className="relative py-24 overflow-hidden"
         initial={{ opacity: 0 }}
@@ -511,22 +505,22 @@ export default function StrategicConsultingPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm text-accent-300 font-bold rounded-2xl shadow-glow border border-accent-400/30 mb-8">
-                <DollarSign size={20} className="mr-2" />
-                INVESTMENT OPTIONS
+                <Target size={20} className="mr-2" />
+                ENGAGEMENT OPTIONS
               </div>
               <h2 className="heading-section text-white mb-8">
                 Flexible{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-secondary-400">
-                  Pricing Packages
+                  Service Packages
                 </span>
               </h2>
               <p className="body-large text-surface-300 max-w-4xl mx-auto">
-                Choose the package that best fits your business size, needs, and budget. All packages include implementation support.
+                Choose the package that best fits your business size and needs. All packages include implementation support.
               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {pricingPackages.map((pkg, index) => (
+              {packages.map((pkg, index) => (
                 <motion.div 
                   key={index}
                   className={`card-glass p-8 hover:bg-white/15 transition-all duration-500 border-surface-700/50 hover:border-accent-400/50 relative ${
@@ -541,7 +535,7 @@ export default function StrategicConsultingPage() {
                   {pkg.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                       <div className="px-6 py-2 bg-gradient-to-r from-accent-500 to-secondary-500 text-white font-bold rounded-full text-sm shadow-glow">
-                        {pkg.cta}
+                        Most Popular
                       </div>
                     </div>
                   )}
@@ -552,8 +546,6 @@ export default function StrategicConsultingPage() {
                       <Clock size={16} />
                       <span className="text-sm">{pkg.duration}</span>
                     </div>
-                    <div className="text-5xl font-black text-accent-300 mb-2">{pkg.price}</div>
-                    <div className="text-sm text-surface-400">One-time investment</div>
                   </div>
 
                   <div className="mb-8">
@@ -575,30 +567,19 @@ export default function StrategicConsultingPage() {
 
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                     <Link 
-                      href="/booking"
+                      href="/contact"
                       className={`block text-center px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                         pkg.popular
                           ? 'bg-gradient-to-r from-accent-600 to-secondary-600 text-white hover:from-accent-700 hover:to-secondary-700 shadow-soft hover:shadow-elevated'
                           : 'bg-white/10 text-white hover:bg-white/20 border border-white/30 hover:border-white/50'
                       }`}
                     >
-                      {pkg.popular ? 'Get Started' : pkg.cta}
+                      Contact Us
                     </Link>
                   </motion.div>
                 </motion.div>
               ))}
             </div>
-
-            <motion.div 
-              className="text-center mt-12"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-surface-300 mb-4">All packages include 30-day money-back guarantee</p>
-              <p className="text-surface-400 text-sm">Payment plans available for 6+ month engagements</p>
-            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -643,7 +624,7 @@ export default function StrategicConsultingPage() {
               viewport={{ once: true }}
             >
               <div className="mb-8">
-                <h3 className="text-3xl font-bold text-surface-900 mb-4">TechVista Solutions Pvt Ltd</h3>
+                <h3 className="text-3xl font-bold text-surface-900 mb-4">Technology SaaS Company</h3>
                 <div className="flex flex-wrap items-center gap-3 text-surface-600 mb-6">
                   <div className="flex items-center">
                     <Users size={16} className="mr-2" />
@@ -711,7 +692,7 @@ export default function StrategicConsultingPage() {
                     </p>
                     <div>
                       <div className="font-bold text-surface-900">Rajesh Sharma</div>
-                      <div className="text-surface-600 text-sm">CEO & Founder, TechVista Solutions, Mumbai</div>
+                      <div className="text-surface-600 text-sm">CEO & Founder</div>
                     </div>
                   </div>
                 </div>
@@ -922,8 +903,8 @@ export default function StrategicConsultingPage() {
                   href="/contact"
                   className="inline-flex items-center space-x-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-bold text-lg hover:bg-white/20 transition-all duration-300 border border-white/30 hover:border-white/50 focus-ring-inset"
                 >
-                  <Download size={20} />
-                  <span>Download Strategy Guide</span>
+                  <MessageCircle size={20} />
+                  <span>Contact Us</span>
                 </Link>
               </motion.div>
             </motion.div>

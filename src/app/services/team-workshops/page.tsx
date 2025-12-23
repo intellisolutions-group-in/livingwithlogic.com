@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
   Lightbulb, ArrowRight, CheckCircle2, Calendar, 
-  Target, Users, Award, Clock, DollarSign,
-  Star, Download, MessageCircle
+  Target, Users, Award, Clock,
+  Star, MessageCircle
 } from 'lucide-react';
 
 const popularWorkshops = [
@@ -15,7 +15,6 @@ const popularWorkshops = [
     title: 'High-Performance Teams',
     duration: '2 days',
     participants: '10-25',
-    price: '₹2,80,000',
     description: 'Transform team dynamics and build high-performing, collaborative units.',
     topics: [
       'Team dynamics & psychology',
@@ -24,8 +23,8 @@ const popularWorkshops = [
       'Conflict to synergy'
     ],
     outcomes: [
-      '40% productivity increase',
-      '60% improvement in collaboration',
+      'Productivity increase',
+      'Improved collaboration',
       'Clear team charter & norms'
     ]
   },
@@ -33,7 +32,6 @@ const popularWorkshops = [
     title: 'Innovation & Design Thinking',
     duration: '1 day',
     participants: '8-20',
-    price: '₹1,80,000',
     description: 'Unlock creative problem-solving and innovation capabilities in your team.',
     topics: [
       'Creative ideation techniques',
@@ -42,7 +40,7 @@ const popularWorkshops = [
       'Innovation frameworks'
     ],
     outcomes: [
-      '3x more innovative ideas',
+      'More innovative ideas',
       'Faster problem-solving',
       'Innovation mindset shift'
     ]
@@ -51,7 +49,6 @@ const popularWorkshops = [
     title: 'Effective Communication Mastery',
     duration: '1 day',
     participants: '12-30',
-    price: '₹2,20,000',
     description: 'Master communication skills that drive clarity, influence, and results.',
     topics: [
       'Active listening techniques',
@@ -60,7 +57,7 @@ const popularWorkshops = [
       'Difficult conversations'
     ],
     outcomes: [
-      '50% fewer misunderstandings',
+      'Fewer misunderstandings',
       'Improved presentation skills',
       'Enhanced team clarity'
     ]
@@ -69,7 +66,6 @@ const popularWorkshops = [
     title: 'Conflict to Collaboration',
     duration: '1 day',
     participants: '10-20',
-    price: '₹1,95,000',
     description: 'Transform workplace conflicts into opportunities for growth and collaboration.',
     topics: [
       'Conflict resolution models',
@@ -78,7 +74,7 @@ const popularWorkshops = [
       'Mediation techniques'
     ],
     outcomes: [
-      '70% reduction in conflicts',
+      'Reduced conflicts',
       'Stronger team relationships',
       'Collaborative culture'
     ]
@@ -87,7 +83,6 @@ const popularWorkshops = [
     title: 'Agile Team Collaboration',
     duration: '1.5 days',
     participants: '10-25',
-    price: '₹2,40,000',
     description: 'Build agile, adaptive teams that thrive in fast-paced environments.',
     topics: [
       'Agile principles & mindset',
@@ -96,7 +91,7 @@ const popularWorkshops = [
       'Continuous improvement'
     ],
     outcomes: [
-      '30% faster delivery',
+      'Faster delivery',
       'Agile team mindset',
       'Better adaptability'
     ]
@@ -105,7 +100,6 @@ const popularWorkshops = [
     title: 'Remote Team Excellence',
     duration: '1 day',
     participants: '12-30',
-    price: '₹2,10,000',
     description: 'Master remote collaboration and virtual team management.',
     topics: [
       'Virtual communication tools',
@@ -174,7 +168,7 @@ const faqs = [
   },
   {
     question: 'Can we combine multiple workshop topics?',
-    answer: 'Absolutely! We often create multi-day programs combining topics. For example, a 3-day program might include High-Performance Teams (Day 1-2) + Communication (Day 3). We offer 10-15% discounts for multi-workshop packages.'
+    answer: 'Absolutely! We often create multi-day programs combining topics. For example, a 3-day program might include High-Performance Teams (Day 1-2) + Communication (Day 3). We offer special pricing for multi-workshop packages.'
   },
   {
     question: 'How interactive are the workshops?',
@@ -325,7 +319,6 @@ export default function TeamWorkshopsPage() {
                       </div>
                     </div>
                     
-                    <div className="text-3xl font-black text-primary-600 mb-6">{workshop.price}</div>
                   </div>
 
                   <div className="mb-6 flex-grow">
@@ -498,7 +491,7 @@ export default function TeamWorkshopsPage() {
         </div>
       </motion.section>
 
-      {/* Group Packages */}
+      {/* Custom Programs */}
       <motion.section 
         className="relative py-24 overflow-hidden"
         initial={{ opacity: 0 }}
@@ -518,60 +511,23 @@ export default function TeamWorkshopsPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center px-6 py-3 bg-white backdrop-blur-sm text-primary-600 font-bold rounded-2xl shadow-soft border border-primary-200/50 mb-8">
-                <DollarSign size={20} className="mr-2" />
-                SPECIAL OFFERS
+                <Target size={20} className="mr-2" />
+                CUSTOM PROGRAMS
               </div>
               <h2 className="heading-section text-surface-900 mb-8">
-                Multi-Workshop{' '}
+                Build Your{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">
-                  Package Discounts
+                  Training Program
                 </span>
               </h2>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-6">
-              {[
-                { workshops: '3 Workshops', discount: '10%', savings: '₹30,000+' },
-                { workshops: '5 Workshops', discount: '15%', savings: '₹75,000+', popular: true },
-                { workshops: 'Annual Program', discount: '20%', savings: '₹1,50,000+' }
-              ].map((pkg, index) => (
-                <motion.div 
-                  key={index}
-                  className={`card-elevated p-8 text-center relative ${
-                    pkg.popular ? 'border-2 border-accent-500' : ''
-                  }`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  {pkg.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10 whitespace-nowrap">
-                      <span className="inline-flex items-center px-4 py-1.5 bg-gradient-to-r from-accent-500 to-secondary-500 text-white font-bold rounded-full text-xs shadow-glow uppercase tracking-wide">
-                        Most Popular
-                      </span>
-                    </div>
-                  )}
-                  <div className="text-4xl font-black text-primary-600 mb-2">{pkg.discount}</div>
-                  <div className="text-lg font-bold text-surface-900 mb-4">{pkg.workshops}</div>
-                  <div className="text-surface-600">Save {pkg.savings}</div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div 
-              className="text-center mt-12"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-surface-600 mb-6">Build a custom training program with multiple workshops throughout the year</p>
+              <p className="body-large text-surface-600 max-w-4xl mx-auto mb-8">
+                Combine multiple workshops into a comprehensive training program tailored to your organization&apos;s needs.
+              </p>
               <Link 
-                href="/booking"
+                href="/contact"
                 className="inline-flex items-center text-primary-600 font-bold hover:text-primary-700 transition-colors"
               >
-                Discuss Custom Package
+                Contact Us to Discuss
                 <ArrowRight size={20} className="ml-2" />
               </Link>
             </motion.div>
@@ -620,7 +576,7 @@ export default function TeamWorkshopsPage() {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div>
-                  <h3 className="text-3xl font-bold text-white mb-4">RetailHub India</h3>
+                  <h3 className="text-3xl font-bold text-white mb-4">Retail E-commerce Company</h3>
                   <p className="text-surface-300 mb-4">
                     80 employees | Retail/E-commerce | Delhi NCR
                   </p>
@@ -672,7 +628,7 @@ export default function TeamWorkshopsPage() {
                     </p>
                     <div>
                       <div className="font-bold text-white">Amit Kumar</div>
-                      <div className="text-surface-300 text-sm">Founder & Managing Director, RetailHub India, Delhi</div>
+                      <div className="text-surface-300 text-sm">Founder & Managing Director</div>
                     </div>
                   </div>
                 </div>
@@ -781,8 +737,8 @@ export default function TeamWorkshopsPage() {
                   href="/contact"
                   className="inline-flex items-center space-x-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-bold text-lg hover:bg-white/20 transition-all duration-300 border border-white/30 hover:border-white/50 focus-ring-inset"
                 >
-                  <Download size={20} />
-                  <span>Download Workshop Catalog</span>
+                  <MessageCircle size={20} />
+                  <span>Contact Us</span>
                 </Link>
               </motion.div>
             </motion.div>

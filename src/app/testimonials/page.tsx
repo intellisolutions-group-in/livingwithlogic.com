@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
-  Star, ArrowRight, Calendar, Building, Target, Filter, Award
+  Star, ArrowRight, Calendar, Target, Filter, Award
 } from 'lucide-react';
 
 const testimonials = [
@@ -13,7 +13,6 @@ const testimonials = [
     id: 1,
     name: 'Rajesh Sharma',
     title: 'CEO & Founder',
-    company: 'TechVista Solutions',
     location: 'Mumbai',
     avatar: 'RS',
     rating: 5,
@@ -26,7 +25,6 @@ const testimonials = [
     id: 2,
     name: 'Dr. Priya Menon',
     title: 'Founder & Medical Director',
-    company: 'Healthcare Plus India',
     location: 'Bangalore',
     avatar: 'PM',
     rating: 5,
@@ -39,7 +37,6 @@ const testimonials = [
     id: 3,
     name: 'Amit Kumar',
     title: 'Founder & Managing Director',
-    company: 'RetailHub India',
     location: 'Delhi',
     avatar: 'AK',
     rating: 5,
@@ -52,7 +49,6 @@ const testimonials = [
     id: 4,
     name: 'Vikram Malhotra',
     title: 'Chief Operating Officer',
-    company: 'Manufacturing Excellence Pvt Ltd',
     location: 'Pune',
     avatar: 'VM',
     rating: 5,
@@ -65,7 +61,6 @@ const testimonials = [
     id: 5,
     name: 'Deepika Reddy',
     title: 'Vice President of Operations',
-    company: 'FinServe Solutions',
     location: 'Hyderabad',
     avatar: 'DR',
     rating: 5,
@@ -78,7 +73,6 @@ const testimonials = [
     id: 6,
     name: 'Kavita Singh',
     title: 'Co-founder & CEO',
-    company: 'EduTech Innovators',
     location: 'Chennai',
     avatar: 'KS',
     rating: 5,
@@ -91,7 +85,6 @@ const testimonials = [
     id: 7,
     name: 'Arjun Patel',
     title: 'Director of Engineering',
-    company: 'CloudTech Systems',
     location: 'Bangalore',
     avatar: 'AP',
     rating: 5,
@@ -104,7 +97,6 @@ const testimonials = [
     id: 8,
     name: 'Meera Desai',
     title: 'HR Director',
-    company: 'ConsultPro India',
     location: 'Mumbai',
     avatar: 'MD',
     rating: 5,
@@ -117,7 +109,6 @@ const testimonials = [
     id: 9,
     name: 'Rohit Kapoor',
     title: 'CTO',
-    company: 'DataStream Analytics',
     location: 'Hyderabad',
     avatar: 'RK',
     rating: 5,
@@ -130,7 +121,6 @@ const testimonials = [
     id: 10,
     name: 'Ananya Iyer',
     title: 'Operations Manager',
-    company: 'FreshMart Retail',
     location: 'Chennai',
     avatar: 'AI',
     rating: 5,
@@ -143,7 +133,6 @@ const testimonials = [
     id: 11,
     name: 'Karthik Subramanian',
     title: 'Managing Partner',
-    company: 'LegalEdge Associates',
     location: 'Bangalore',
     avatar: 'KS2',
     rating: 5,
@@ -156,7 +145,6 @@ const testimonials = [
     id: 12,
     name: 'Sneha Verma',
     title: 'Founder',
-    company: 'BeautyBox E-commerce',
     location: 'Delhi',
     avatar: 'SV',
     rating: 5,
@@ -169,7 +157,6 @@ const testimonials = [
     id: 13,
     name: 'Prakash Reddy',
     title: 'VP Sales',
-    company: 'IndustrialTech Solutions',
     location: 'Pune',
     avatar: 'PR',
     rating: 5,
@@ -182,7 +169,6 @@ const testimonials = [
     id: 14,
     name: 'Divya Mehta',
     title: 'Head of Product',
-    company: 'FinTech Innovations',
     location: 'Mumbai',
     avatar: 'DM',
     rating: 5,
@@ -195,7 +181,6 @@ const testimonials = [
     id: 15,
     name: 'Aditya Kapoor',
     title: 'CEO',
-    company: 'GreenEnergy Systems',
     location: 'Bangalore',
     avatar: 'AK2',
     rating: 5,
@@ -208,7 +193,6 @@ const testimonials = [
     id: 16,
     name: 'Pooja Sharma',
     title: 'Director HR',
-    company: 'GlobalTech Services',
     location: 'Gurgaon',
     avatar: 'PS',
     rating: 5,
@@ -221,7 +205,6 @@ const testimonials = [
     id: 17,
     name: 'Sanjay Patel',
     title: 'CFO',
-    company: 'Heritage Textiles',
     location: 'Ahmedabad',
     avatar: 'SP',
     rating: 5,
@@ -234,7 +217,6 @@ const testimonials = [
     id: 18,
     name: 'Nisha Gupta',
     title: 'Marketing Director',
-    company: 'FashionForward Brands',
     location: 'Mumbai',
     avatar: 'NG',
     rating: 5,
@@ -247,7 +229,6 @@ const testimonials = [
     id: 19,
     name: 'Ravi Kumar',
     title: 'Founder & CEO',
-    company: 'LogiTech Warehousing',
     location: 'Chennai',
     avatar: 'RK2',
     rating: 5,
@@ -260,7 +241,6 @@ const testimonials = [
     id: 20,
     name: 'Lakshmi Narayan',
     title: 'COO',
-    company: 'HealthCare Diagnostics',
     location: 'Hyderabad',
     avatar: 'LN',
     rating: 5,
@@ -479,7 +459,6 @@ export default function TestimonialsPage() {
                       <div>
                         <h3 className="font-bold text-surface-900 text-lg">{testimonial.name}</h3>
                         <p className="text-surface-600 text-sm">{testimonial.title}</p>
-                        <p className="text-surface-500 text-sm">{testimonial.company}</p>
                       </div>
                     </div>
                     <div className="flex flex-col items-end">
@@ -572,7 +551,7 @@ export default function TestimonialsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {[
-                { metric: '200+', label: 'Companies Served', icon: Building },
+                { metric: '200+', label: 'Companies Served', icon: Target },
                 { metric: '15+', label: 'Years Experience', icon: Calendar },
                 { metric: '99%', label: 'Client Satisfaction', icon: Star },
                 { metric: '85%', label: 'Client Retention', icon: Award }

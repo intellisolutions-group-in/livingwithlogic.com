@@ -289,15 +289,15 @@ export default function BlogPage() {
                         day: 'numeric' 
                       })}
                     </span>
-                    <motion.button 
-                      onClick={() => showToast.blogLoginRequired()}
-                      className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-bold shadow-soft hover:shadow-elevated focus-ring"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <span>Read Article</span>
-                      <ArrowRight size={16} />
-                    </motion.button>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                      <Link 
+                        href={`/blog/${featuredPost.slug}`}
+                        className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-bold shadow-soft hover:shadow-elevated focus-ring"
+                      >
+                        <span>Read Article</span>
+                        <ArrowRight size={16} />
+                      </Link>
+                    </motion.div>
                   </div>
                 </div>
                 <div className="relative rounded-2xl overflow-hidden min-h-[400px] border-2 border-primary-400/30 group-hover:border-accent-400/50 transition-colors">
@@ -480,14 +480,13 @@ export default function BlogPage() {
                           day: 'numeric' 
                         })}
                       </span>
-                      <motion.button 
-                        onClick={() => showToast.blogLoginRequired()}
+                      <Link 
+                        href={`/blog/${post.slug}`}
                         className="inline-flex items-center text-primary-600 hover:text-accent-600 font-bold transition-colors group/btn"
-                        whileHover={{ x: 4 }}
                       >
                         <span>Read More</span>
                         <ArrowRight size={16} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                      </motion.button>
+                      </Link>
                     </div>
                   </div>
                 </motion.article>

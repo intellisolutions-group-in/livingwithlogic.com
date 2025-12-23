@@ -6,20 +6,19 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
   Award, ArrowRight, TrendingUp, Users, Target,
-  Building, Calendar, DollarSign, Star,
+  Building, Calendar, Star,
   Filter, Zap
 } from 'lucide-react';
 
 const caseStudies = [
   {
     id: 1,
-    company: 'TechVista Solutions Pvt Ltd',
+    title: 'Technology SaaS Transformation',
     industry: 'Technology/SaaS',
     location: 'Mumbai, Maharashtra',
     employees: 150,
     service: 'Strategic Consulting',
     duration: '9 months',
-    investment: '₹18,00,000',
     challenge: 'Unclear product strategy, team silos, fragmented messaging, slow growth despite good product',
     solution: 'Conducted comprehensive market analysis, competitor research, and stakeholder interviews. Created 3-year strategic roadmap with clear positioning, go-to-market strategy, and organizational alignment framework.',
     results: [
@@ -38,13 +37,12 @@ const caseStudies = [
   },
   {
     id: 2,
-    company: 'Healthcare Plus India',
+    title: 'Healthcare Services Expansion',
     industry: 'Healthcare Services',
     location: 'Bangalore, Karnataka',
     employees: 300,
     service: 'Organizational Transformation',
     duration: '12 months',
-    investment: '₹35,00,000',
     challenge: 'Rapid expansion threatening quality standards, inconsistent processes across locations, staff retention issues',
     solution: 'Implemented comprehensive transformation: standardized processes, quality management system, leadership development program, and performance management redesign across all 40 new locations.',
     results: [
@@ -63,13 +61,12 @@ const caseStudies = [
   },
   {
     id: 3,
-    company: 'RetailHub India',
+    title: 'Retail Digital Transformation',
     industry: 'Retail/E-commerce',
     location: 'Delhi NCR',
     employees: 80,
     service: 'Team Workshops',
     duration: '6 months',
-    investment: '₹12,00,000',
     challenge: 'Team resistance to digital transformation, departmental silos, slow adaptation to e-commerce shift',
     solution: '3-workshop series: High-Performance Teams, Communication Mastery, and Conflict to Collaboration. Conducted over 3 months with follow-up sessions and hands-on implementation support.',
     results: [
@@ -88,13 +85,12 @@ const caseStudies = [
   },
   {
     id: 4,
-    company: 'Manufacturing Excellence Pvt Ltd',
+    title: 'Manufacturing Excellence Program',
     industry: 'Manufacturing',
     location: 'Pune, Maharashtra',
     employees: 500,
     service: 'Organizational Transformation',
     duration: '18 months',
-    investment: '₹48,00,000',
     challenge: 'Outdated processes, high waste (38%), low employee morale, 28% annual turnover, declining global competitiveness',
     solution: 'Comprehensive 18-month transformation: process reengineering using Lean Six Sigma, culture transformation program, leadership development for 25 managers, and performance management system redesign.',
     results: [
@@ -115,13 +111,12 @@ const caseStudies = [
   },
   {
     id: 5,
-    company: 'FinServe Solutions',
+    title: 'Financial Services Leadership',
     industry: 'Financial Services',
     location: 'Hyderabad, Telangana',
     employees: 200,
     service: 'Leadership Development',
     duration: '12 months',
-    investment: '₹22,00,000',
     challenge: 'Leadership gaps at multiple levels, compliance violations, inconsistent client service, manager effectiveness issues',
     solution: '12-month leadership development program: executive coaching for 5 senior leaders, group training for 15 mid-level managers, 360-degree feedback, and succession planning framework.',
     results: [
@@ -140,13 +135,12 @@ const caseStudies = [
   },
   {
     id: 6,
-    company: 'EduTech Innovators',
+    title: 'EdTech Strategic Pivot',
     industry: 'Education Technology',
     location: 'Chennai, Tamil Nadu',
     employees: 120,
     service: 'Strategic Consulting',
     duration: '8 months',
-    investment: '₹16,00,000',
     challenge: 'Product-market misalignment, need for major pivot, unclear target market, team uncertainty about direction',
     solution: 'Comprehensive market research and strategy work: customer discovery interviews, competitive analysis, business model redesign, and product-market fit validation. Created new go-to-market strategy and product roadmap.',
     results: [
@@ -251,7 +245,7 @@ export default function CaseStudiesPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { metric: '200+', label: 'Companies Served' },
-                { metric: '₹500+ Cr', label: 'Combined Revenue Impact' },
+                { metric: '15+', label: 'Years of Excellence' },
                 { metric: '8:1', label: 'Average ROI' },
                 { metric: '99%', label: 'Client Satisfaction' }
               ].map((stat, index) => (
@@ -355,7 +349,7 @@ export default function CaseStudiesPage() {
                         </span>
                       ))}
                     </div>
-                    <h2 className="text-3xl lg:text-4xl font-bold text-surface-900 mb-4">{caseStudy.company}</h2>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-surface-900 mb-4">{caseStudy.title}</h2>
                     <div className="flex flex-wrap items-center gap-6 text-surface-600">
                       <div className="flex items-center">
                         <Building size={16} className="mr-2" />
@@ -372,10 +366,6 @@ export default function CaseStudiesPage() {
                       <div className="flex items-center">
                         <Calendar size={16} className="mr-2" />
                         <span className="text-sm">{caseStudy.duration}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <DollarSign size={16} className="mr-2" />
-                        <span className="text-sm">{caseStudy.investment}</span>
                       </div>
                     </div>
                   </div>
@@ -449,7 +439,7 @@ export default function CaseStudiesPage() {
                         <div>
                           <div className="font-bold text-surface-900 text-lg">{caseStudy.testimonial.author}</div>
                           <div className="text-surface-600">{caseStudy.testimonial.title}</div>
-                          <div className="text-surface-500 text-sm">{caseStudy.company}</div>
+                          <div className="text-surface-500 text-sm">{caseStudy.industry}</div>
                         </div>
                       </div>
                     </div>

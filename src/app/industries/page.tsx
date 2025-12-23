@@ -38,7 +38,7 @@ const industries = [
       'Stronger engineering culture'
     ],
     caseStudy: {
-      company: 'TechVista Solutions',
+      company: 'Technology SaaS Company',
       result: '45% revenue growth, team alignment achieved'
     },
     services: [
@@ -75,7 +75,7 @@ const industries = [
       'Zero compliance violations'
     ],
     caseStudy: {
-      company: 'Healthcare Plus India',
+      company: 'Healthcare Network',
       result: '40 locations opened, 4.8/5 patient satisfaction'
     },
     services: [
@@ -112,7 +112,7 @@ const industries = [
       'Enhanced global competitiveness'
     ],
     caseStudy: {
-      company: 'Manufacturing Excellence',
+      company: 'Manufacturing Company',
       result: '50% cycle time reduction, culture transformed'
     },
     services: [
@@ -149,7 +149,7 @@ const industries = [
       'Enhanced risk management'
     ],
     caseStudy: {
-      company: 'FinServe Solutions',
+      company: 'Financial Services Firm',
       result: 'Zero compliance violations, 94% client retention'
     },
     services: [
@@ -186,7 +186,7 @@ const industries = [
       'Seamless omnichannel experience'
     ],
     caseStudy: {
-      company: 'RetailHub India',
+      company: 'Retail E-commerce Company',
       result: '65% online sales, 3x customer base'
     },
     services: [
@@ -223,7 +223,7 @@ const industries = [
       'Successful partner transitions'
     ],
     caseStudy: {
-      company: 'LegalEdge Associates',
+      company: 'Professional Services Firm',
       result: '45% billing efficiency, modern workflows'
     },
     services: [

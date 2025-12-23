@@ -22,7 +22,6 @@ const services = [
       'Quarterly strategy reviews and adjustments'
     ],
     duration: '3-6 months',
-    investment: 'Starting from $15,000',
     icon: BarChart3
   },
   {
@@ -38,7 +37,6 @@ const services = [
       'Succession planning and talent pipeline development'
     ],
     duration: '6-12 months',
-    investment: 'Starting from $8,000',
     icon: Users
   },
   {
@@ -54,7 +52,6 @@ const services = [
       'Skills development and training programs'
     ],
     duration: '1-3 days',
-    investment: 'Starting from $3,500',
     icon: Lightbulb
   },
   {
@@ -70,7 +67,6 @@ const services = [
       'Performance management system design'
     ],
     duration: '6-18 months',
-    investment: 'Starting from $25,000',
     icon: RefreshCw
   }
 ];
@@ -275,8 +271,7 @@ export default function ServicesPage() {
                   {/* Footer */}
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pt-6 lg:pt-8 border-t border-surface-200/50 mt-auto">
                     <div className="text-center sm:text-left">
-                      <div className="text-surface-500 mb-1 text-sm">Duration: {service.duration}</div>
-                      <div className="text-xl sm:text-2xl font-bold text-primary-600">{service.investment}</div>
+                      <div className="text-surface-600 font-medium text-sm">Duration: {service.duration}</div>
                     </div>
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
                       <Link 

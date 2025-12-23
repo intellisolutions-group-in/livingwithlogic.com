@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
   RefreshCw, ArrowRight, CheckCircle2, Calendar, 
-  Target, TrendingUp, Award, Clock, DollarSign,
-  Star, Download, Brain, Users
+  Target, TrendingUp, Award, Clock,
+  Star, MessageCircle, Brain, Users
 } from 'lucide-react';
 
 const transformationAreas = [
@@ -141,11 +141,10 @@ const transformationPhases = [
   }
 ];
 
-const pricingTiers = [
+const packages = [
   {
     name: 'Standard Transformation',
     duration: '6 months',
-    price: '₹20,00,000',
     scope: 'Focused transformation of specific area or department',
     features: [
       'Single department or function',
@@ -156,12 +155,11 @@ const pricingTiers = [
       'Documentation & training'
     ],
     ideal: 'Small to mid-size companies',
-    results: '30-40% efficiency improvement'
+    results: 'Efficiency improvement'
   },
   {
     name: 'Comprehensive Transformation',
     duration: '12 months',
-    price: '₹45,00,000',
     scope: 'Organization-wide transformation across multiple areas',
     features: [
       'Multiple departments involved',
@@ -174,12 +172,11 @@ const pricingTiers = [
     ],
     ideal: 'Growing mid-market companies',
     popular: true,
-    results: '50%+ productivity gains, 40% cost reduction'
+    results: 'Productivity gains, cost reduction'
   },
   {
     name: 'Enterprise Transformation',
     duration: '18+ months',
-    price: 'Custom',
     scope: 'Complete enterprise-wide transformation with sustained support',
     features: [
       'Entire organization transformation',
@@ -512,7 +509,7 @@ export default function OrganizationalTransformationPage() {
         </div>
       </motion.section>
 
-      {/* Pricing Tiers */}
+      {/* Packages */}
       <motion.section 
         className="relative py-24 overflow-hidden"
         initial={{ opacity: 0 }}
@@ -533,8 +530,8 @@ export default function OrganizationalTransformationPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm text-accent-300 font-bold rounded-2xl shadow-glow border border-accent-400/30 mb-8">
-                <DollarSign size={20} className="mr-2" />
-                INVESTMENT OPTIONS
+                <Target size={20} className="mr-2" />
+                ENGAGEMENT OPTIONS
               </div>
               <h2 className="heading-section text-white mb-8">
                 Transformation{' '}
@@ -545,11 +542,11 @@ export default function OrganizationalTransformationPage() {
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {pricingTiers.map((tier, index) => (
+              {packages.map((pkg, index) => (
                 <motion.div 
                   key={index}
                   className={`card-glass p-8 hover:bg-white/15 transition-all duration-500 border-surface-700/50 hover:border-accent-400/50 relative ${
-                    tier.popular ? 'lg:scale-105 border-accent-400/50' : ''
+                    pkg.popular ? 'lg:scale-105 border-accent-400/50' : ''
                   }`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -557,7 +554,7 @@ export default function OrganizationalTransformationPage() {
                   viewport={{ once: true }}
                   whileHover={{ y: -4 }}
                 >
-                  {tier.popular && (
+                  {pkg.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                       <div className="px-6 py-2 bg-gradient-to-r from-accent-500 to-secondary-500 text-white font-bold rounded-full text-sm shadow-glow">
                         MOST POPULAR
@@ -566,20 +563,18 @@ export default function OrganizationalTransformationPage() {
                   )}
                   
                   <div className="text-center mb-8">
-                    <h3 className="heading-card text-white mb-2">{tier.name}</h3>
+                    <h3 className="heading-card text-white mb-2">{pkg.name}</h3>
                     <div className="flex items-center justify-center space-x-2 text-surface-300 mb-4">
                       <Clock size={16} />
-                      <span className="text-sm">{tier.duration}</span>
+                      <span className="text-sm">{pkg.duration}</span>
                     </div>
-                    <div className="text-5xl font-black text-accent-300 mb-2">{tier.price}</div>
-                    <div className="text-sm text-surface-400 mb-4">Starting investment</div>
-                    <p className="text-sm text-surface-300 italic">{tier.scope}</p>
+                    <p className="text-sm text-surface-300 italic">{pkg.scope}</p>
                   </div>
 
                   <div className="mb-8">
                     <div className="text-sm font-bold text-accent-300 mb-4">INCLUDES:</div>
                     <ul className="space-y-3">
-                      {tier.features.map((feature, idx) => (
+                      {pkg.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start text-surface-200">
                           <CheckCircle2 size={16} className="text-secondary-400 mr-3 flex-shrink-0 mt-0.5" />
                           <span className="text-sm">{feature}</span>
@@ -590,21 +585,21 @@ export default function OrganizationalTransformationPage() {
 
                   <div className="border-t border-surface-700/50 pt-6 mb-6">
                     <div className="text-sm text-surface-400 mb-2">IDEAL FOR:</div>
-                    <div className="text-white font-semibold mb-4">{tier.ideal}</div>
+                    <div className="text-white font-semibold mb-4">{pkg.ideal}</div>
                     <div className="text-sm text-surface-400 mb-2">EXPECTED RESULTS:</div>
-                    <div className="text-accent-300 font-semibold">{tier.results}</div>
+                    <div className="text-accent-300 font-semibold">{pkg.results}</div>
                   </div>
 
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                     <Link 
-                      href="/booking"
+                      href="/contact"
                       className={`block text-center px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
-                        tier.popular
+                        pkg.popular
                           ? 'bg-gradient-to-r from-accent-600 to-secondary-600 text-white hover:from-accent-700 hover:to-secondary-700 shadow-soft hover:shadow-elevated'
                           : 'bg-white/10 text-white hover:bg-white/20 border border-white/30 hover:border-white/50'
                       }`}
                     >
-                      {tier.popular ? 'Get Started' : 'Contact Us'}
+                      Contact Us
                     </Link>
                   </motion.div>
                 </motion.div>
@@ -653,7 +648,7 @@ export default function OrganizationalTransformationPage() {
               viewport={{ once: true }}
             >
               <div className="mb-8">
-                <h3 className="text-3xl font-bold text-surface-900 mb-4">Manufacturing Excellence Pvt Ltd</h3>
+                <h3 className="text-3xl font-bold text-surface-900 mb-4">Manufacturing Company</h3>
                 <p className="text-surface-600 text-lg">500 employees | Manufacturing | Pune, Maharashtra</p>
               </div>
 
@@ -710,7 +705,7 @@ export default function OrganizationalTransformationPage() {
                     </p>
                     <div>
                       <div className="font-bold text-surface-900">Vikram Malhotra</div>
-                      <div className="text-surface-600 text-sm">Chief Operating Officer, Manufacturing Excellence Pvt Ltd, Pune</div>
+                      <div className="text-surface-600 text-sm">Chief Operating Officer</div>
                     </div>
                   </div>
                 </div>
@@ -819,8 +814,8 @@ export default function OrganizationalTransformationPage() {
                   href="/contact"
                   className="inline-flex items-center space-x-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-bold text-lg hover:bg-white/20 transition-all duration-300 border border-white/30 hover:border-white/50 focus-ring-inset"
                 >
-                  <Download size={20} />
-                  <span>Download Success Guide</span>
+                  <MessageCircle size={20} />
+                  <span>Contact Us</span>
                 </Link>
               </motion.div>
             </motion.div>
