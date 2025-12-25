@@ -5,14 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "preview": "npx serve@latest out",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "type-check": "tsc --noEmit",
     "build:analyze": "ANALYZE=true npm run build",
     "build:production": "npm run type-check && npm run lint && npm run build",
-    "build:deploy": "npm run build:production && node scripts/create-production-build.mjs",
-    "preview": "npm run build && npm run start"
+    "build:deploy": "npm run build:production && node scripts/create-production-build.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
