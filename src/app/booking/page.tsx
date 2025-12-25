@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import FormField from '@/components/ui/FormField';
 import { validation } from '@/utils/validation';
 import { showToast } from '@/utils/toast';
@@ -52,6 +53,7 @@ const availableSlots = [
 ];
 
 export default function BookingPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -90,25 +92,13 @@ export default function BookingPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      console.log('Booking form submitted:', formData);
-      
-      showToast.booking();
-      setFormData({ fullName: '', email: '', phone: '', date: '' });
-    } catch {
-      showToast.error('There was an error with your booking. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Always show login required notification and redirect to login
+    showToast.bookingLoginRequired();
+    
+    // Redirect to login page after showing notification
+    setTimeout(() => {
+      router.push('/login');
+    }, 1500);
   };
 
   return (
@@ -542,7 +532,7 @@ export default function BookingPage() {
                 <div className="text-center">
                   <motion.button
                     type="submit"
-                    disabled={isSubmitting || !validateForm()}
+                    disabled={isSubmitting}
                     className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-primary-600 to-accent-600 text-white rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-bold text-lg shadow-soft hover:shadow-elevated focus-ring disabled:opacity-50 disabled:cursor-not-allowed"
                     whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                     whileTap={{ scale: isSubmitting ? 1 : 0.98 }}

@@ -38,6 +38,15 @@ export const showToast = {
       fontWeight: 'bold'
     }
   }),
+  bookingLoginRequired: () => toast('Please log in first to complete your booking', { 
+    icon: '🔒',
+    duration: 4000,
+    style: {
+      background: '#1f2937',
+      color: '#fff',
+      fontWeight: 'bold'
+    }
+  }),
   passwordResetSuccess: () => toast('Your reset password request is placed successfull and will receive an reset link in your email', { 
     duration: 5000,
     style: {
